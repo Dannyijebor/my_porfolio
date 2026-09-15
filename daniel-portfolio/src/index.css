@@ -1634,3 +1634,145 @@ footer {
   }
 }
 
+
+
+/* =========================================================
+   PROJECT DESCRIPTION SPACING + CLEAN REVEAL
+   ========================================================= */
+
+.project-card p {
+  display: block;
+  position: relative;
+  z-index: 5;
+  max-width: 520px;
+  margin-top: 1.75rem;
+  padding-top: 0;
+  line-height: 1.9;
+  word-spacing: .18em;
+  letter-spacing: .005em;
+}
+
+.project-card p .animated-project-text {
+  display: inline;
+}
+
+.project-card p .animated-word {
+  display: inline-block;
+  margin-right: .28em;
+  vertical-align: baseline;
+  white-space: normal;
+}
+
+.project-card p .animated-word:last-child {
+  margin-right: 0;
+}
+
+/* Give every project its own visual breathing room */
+
+.project-card + .project-card {
+  margin-top: 2rem;
+}
+
+/* Keep the description visually subordinate to the title */
+
+.project-card p {
+  font-size: .94rem;
+  color: var(--muted);
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+  .project-card p {
+    max-width: 100%;
+    margin-top: 1.2rem;
+    line-height: 1.8;
+    word-spacing: .08em;
+  }
+
+  .project-card p .animated-word {
+    margin-right: .2em;
+  }
+}
+
+/* Premium project description letter animation */
+.animated-project-text {
+  display: inline;
+}
+
+.animated-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.45em);
+  filter: blur(4px);
+  animation: projectLetterReveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--letter-index) * 10ms);
+}
+
+.animated-space {
+  width: 0.28em;
+}
+
+@keyframes projectLetterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.project-card p {
+  position: relative;
+  z-index: 5;
+  max-width: 520px;
+  margin-top: 1.75rem;
+  line-height: 1.9;
+}
+
+
+/* Fix spacing for animated project descriptions */
+.animated-project-text {
+  word-spacing: 0.15em;
+}
+
+.animated-letter {
+  margin-right: 0;
+}
+
+.animated-space {
+  display: inline-block;
+  width: 0.38em;
+  min-width: 0.38em;
+}
+
+
+/* Coded L@NG — preserve readable word spacing */
+.codedlng-description {
+  display: block !important;
+  max-width: 620px;
+  line-height: 1.9;
+  word-spacing: normal !important;
+}
+
+.codedlng-description .animated-project-text {
+  display: inline !important;
+  white-space: normal !important;
+}
+
+.codedlng-description .animated-letter {
+  display: inline-block;
+}
+
+.codedlng-description .animated-space {
+  display: inline-block;
+  width: 0.32em !important;
+  min-width: 0.32em !important;
+  margin-right: 0 !important;
+}
+

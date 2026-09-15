@@ -133,6 +133,23 @@ function ProjectVisual({ project }) {
     </div>
   );
 }
+function AnimatedDescription({ text }) {
+  return (
+    <span className="animated-project-text" aria-label={text}>
+      {Array.from(text).map((char, index) => (
+        <span
+          key={`${char}-${index}`}
+          className={char === " " ? "animated-letter animated-space" : "animated-letter"}
+          style={{ "--letter-index": index }}
+          aria-hidden="true"
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 function ProjectCard({ project }) {
   return (
     <a
@@ -161,17 +178,7 @@ function ProjectCard({ project }) {
         </div>
 
         <p>
-  <span className="animated-project-text">
-    {project.description.split(" ").map((word, index) => (
-      <span
-        className="animated-word"
-        key={`${word}-${index}`}
-        style={{ "--word-index": index }}
-      >
-        {word}{" "}
-      </span>
-    ))}
-  </span>
+  <AnimatedDescription text={project.description} />
 </p>
       </div>
     </a>
@@ -308,19 +315,9 @@ function App() {
                   <h3>{project.title}</h3>
                 </div>
 
-                <p>
-  <span className="animated-project-text">
-    {project.description.split(" ").map((word, index) => (
-      <span
-        className="animated-word"
-        key={`${word}-${index}`}
-        style={{ "--word-index": index }}
-      >
-        {word}{" "}
-      </span>
-    ))}
-  </span>
-</p>
+                <p className="codedlng-description">
+                  <AnimatedDescription text={project.description} />
+                </p>
 
                 <ArrowUpRight size={25} />
               </a>
