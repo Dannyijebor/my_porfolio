@@ -160,7 +160,19 @@ function ProjectCard({ project }) {
           />
         </div>
 
-        <p>{project.description}</p>
+        <p>
+  <span className="animated-project-text">
+    {project.description.split(" ").map((word, index) => (
+      <span
+        className="animated-word"
+        key={`${word}-${index}`}
+        style={{ "--word-index": index }}
+      >
+        {word}{" "}
+      </span>
+    ))}
+  </span>
+</p>
       </div>
     </a>
   )
@@ -296,7 +308,19 @@ function App() {
                   <h3>{project.title}</h3>
                 </div>
 
-                <p>{project.description}</p>
+                <p>
+  <span className="animated-project-text">
+    {project.description.split(" ").map((word, index) => (
+      <span
+        className="animated-word"
+        key={`${word}-${index}`}
+        style={{ "--word-index": index }}
+      >
+        {word}{" "}
+      </span>
+    ))}
+  </span>
+</p>
 
                 <ArrowUpRight size={25} />
               </a>
